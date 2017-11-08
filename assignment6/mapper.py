@@ -7,8 +7,11 @@ for line in sys.stdin:
 	if len(data) == 10:
 		ip, hp1, hp2, dateTime, gmt, req, path, req_type, status, val = data
 		splited_array = dateTime.split("/")
-		date = splited_array[2]
-		year = date.split(":")[0]
-		print "{0}".format(year)
+		if len(splited_array) == 3:
+			date = splited_array[2]
+			re_splited_array = date.split(":")
+			if len(re_splited_array) == 4:
+				year = re_splited_array[0]
+				print "{0}".format(year)
 
 
